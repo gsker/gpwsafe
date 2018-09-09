@@ -19,6 +19,7 @@ before_script:
   - cd GTEST_BUILD
   - cmake -DBUILD_SHARED_LIBS=ON /usr/src/gtest
   - make
+  - cd -
   
 script:
   - mkdir BUILD
