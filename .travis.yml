@@ -10,7 +10,6 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - libgtest-dev
-      - g++-5
       - expect
       - libboost-program-options-dev
       - libboost-filesystem-dev
@@ -32,4 +31,4 @@ script:
 matrix:
   include:
     - os: linux
-      env: COMPILER_NAME=gcc CXX=g++-5 CC=gcc-5 CTEST_OUTPUT_ON_FAILURE=1
+      env: COMPILER_NAME=gcc CXX=g++ CC=gcc CTEST_OUTPUT_ON_FAILURE=1
