@@ -23,7 +23,7 @@ before_script:
   - mkdir -p /tmp/gtest
   - cd /tmp/gtest
   - cmake -DBUILD_SHARED_LIBS=ON /usr/src/gtest
-  - /bin/grep ENV /usr/local/cmake-3.9.2/share/cmake-3.9/Modules/FindGTest.cmake
+  - make
   - cd -
 script:
   - mkdir BUILD
