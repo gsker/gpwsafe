@@ -31,4 +31,4 @@ script:
 matrix:
   include:
     - os: linux
-      env: COMPILER_NAME=gcc CXX=g++ CC=gcc CTEST_OUTPUT_ON_FAILURE=1
+      env: COMPILER_NAME=clang CXX=clang++ CC=clang CTEST_OUTPUT_ON_FAILURE=1
