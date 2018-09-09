@@ -3,9 +3,6 @@ sudo: required
 dist: trusty
 notifications:
   email: false
-env:
-  global:
-     - GTEST_ROOT=/tmp/gtest
    
 addons:
   apt:
@@ -20,15 +17,16 @@ addons:
       - libboost-filesystem-dev
 
 before_script:
-  - mkdir -p /tmp/gtest
-  - cd /tmp/gtest
+  - mkdir GBUILD
+  - cd GBUILD
   - cmake -DBUILD_SHARED_LIBS=ON /usr/src/gtest
   - make
   - cd -
+  
 script:
   - mkdir BUILD
   - cd BUILD
-  - cmake ..
+  - GTEST_ROOT=../GBUILD cmake ..
   - make
   - make test
 
