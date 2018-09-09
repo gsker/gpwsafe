@@ -4,7 +4,7 @@ dist: trusty
 notifications:
   email: false
 env:
-   - GTEST_LIBRARY=/tmp/gtest
+   GTEST_LIBRARY: "/tmp/gtest"
    
 addons:
   apt:
