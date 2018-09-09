@@ -1,12 +1,11 @@
 language: generic
-sudo: required
+sudo: false
 dist: trusty
 notifications:
   email: false
    
 addons:
   apt:
-    update: true
     sources: 
       - ubuntu-toolchain-r-test
     packages:
@@ -17,8 +16,8 @@ addons:
       - libboost-filesystem-dev
 
 before_script:
-  - mkdir GBUILD
-  - cd GBUILD
+  - mkdir GTEST_BUILD
+  - cd GTEST_BUILD
   - cmake -DBUILD_SHARED_LIBS=ON /usr/src/gtest
   - make
   - cd -
@@ -26,7 +25,7 @@ before_script:
 script:
   - mkdir BUILD
   - cd BUILD
-  - GTEST_ROOT=../GBUILD cmake ..
+  - GTEST_ROOT=../GTEST_BUILD cmake ..
   - make
   - make test
 
