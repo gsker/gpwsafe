@@ -3,16 +3,22 @@ sudo: required
 dist: trusty
 notifications:
   email: false
+env:
+   - GTEST_LIBRARY=/tmp/gtest
+   
+addons:
+  apt:
+  source: 
+    - ppa:ubuntu-toolchain-r/test
+  packages:
+    - libgtest-dev
+    - g++-5
+    - expect
+    - libboost-program-options-dev
+    - libboost-filesystem-dev
 
 before_install:
-  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-  - sudo apt-get -qq update
-  - sudo apt-get install -y libgtest-dev
-  - sudo apt-get install -y libboost-program-options-dev libboost-filesystem-dev
-  - sudo apt-get install g++-5
-  - sudo apt-get install expect
-
-  - bash -c "cp -R /usr/src/gtest /tmp/ && cd /tmp/gtest && cmake -DBUILD_SHARED_LIBS=ON . && make && sudo mv libgtest* /usr/local/lib/"
+  - bash -c "mkdir /tmp/gtest && cd /tmp/gtest && cmake -DBUILD_SHARED_LIBS=ON /usr/src/gtest"
 
 script:
   - mkdir BUILD
