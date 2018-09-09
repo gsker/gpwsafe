@@ -20,7 +20,7 @@ addons:
       - libboost-filesystem-dev
 
 before_script:
-  - bash -c "mkdir /tmp/gtest && cd /tmp/gtest && cmake -DBUILD_SHARED_LIBS=ON /usr/src/gtest"
+  - bash -c "mkdir /tmp/gtest && cd /tmp/gtest && cmake -DBUILD_SHARED_LIBS=ON /usr/src/gtest && make"
 
 script:
   - mkdir BUILD
