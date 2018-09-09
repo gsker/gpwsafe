@@ -19,10 +19,10 @@ addons:
     - libboost-filesystem-dev
 
 before_script:
-  - sudo 
   - bash -c "mkdir /tmp/gtest && cd /tmp/gtest && cmake -DBUILD_SHARED_LIBS=ON /usr/src/gtest"
 
 script:
+  - "mkdir /tmp/gtest && cd /tmp/gtest && cmake -DBUILD_SHARED_LIBS=ON /usr/src/gtest"
   - mkdir BUILD
   - cd BUILD
   - cmake ..
