@@ -5,7 +5,7 @@ notifications:
   email: false
 env:
   global:
-     - GTEST_LIBRARY=/tmp/gtest
+     - GTEST_ROOT=/tmp/gtest
    
 addons:
   apt:
@@ -20,7 +20,7 @@ addons:
       - libboost-filesystem-dev
 
 before_script:
-  - bash -c "mkdir /tmp/gtest && cd /tmp/gtest && cmake -DBUILD_SHARED_LIBS=ON /usr/src/gtest && make && ls -l /tmp/gtest/"
+  - bash -c "mkdir /tmp/gtest && cd /tmp/gtest && cmake -DBUILD_SHARED_LIBS=ON /usr/src/gtest"
 
 script:
   - mkdir BUILD
