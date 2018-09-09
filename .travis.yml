@@ -8,15 +8,15 @@ env:
    
 addons:
   apt:
-  update: true
-  sources: 
-    - ubuntu-toolchain-r-test
-  packages:
-    - libgtest-dev
-    - g++-5
-    - expect
-    - libboost-program-options-dev
-    - libboost-filesystem-dev
+    update: true
+    sources: 
+      - ubuntu-toolchain-r-test
+    packages:
+      - libgtest-dev
+      - g++-5
+      - expect
+      - libboost-program-options-dev
+      - libboost-filesystem-dev
 
 before_script:
   - bash -c "mkdir /tmp/gtest && cd /tmp/gtest && cmake -DBUILD_SHARED_LIBS=ON /usr/src/gtest"
