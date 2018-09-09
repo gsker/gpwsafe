@@ -8,8 +8,9 @@ env:
    
 addons:
   apt:
-  source: 
-    - ppa:ubuntu-toolchain-r/test
+  update: true
+  sources: 
+    - ubuntu-toolchain-r-test
   packages:
     - libgtest-dev
     - g++-5
@@ -17,7 +18,8 @@ addons:
     - libboost-program-options-dev
     - libboost-filesystem-dev
 
-before_install:
+before_script:
+  - sudo 
   - bash -c "mkdir /tmp/gtest && cd /tmp/gtest && cmake -DBUILD_SHARED_LIBS=ON /usr/src/gtest"
 
 script:
